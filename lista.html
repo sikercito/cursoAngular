@@ -1,0 +1,26 @@
+<section name="Lista">
+    <p class="lead">Estos son tus movimientos recientes.</p>
+    <br>
+    <label class="control-label" for="money">Filtrar:</label>
+    <input type="text" name="filtro" placeholder="qué buscas?" class="input" ng-model="valorBuscado">
+    <table class="table">
+        <thead>
+            <tr>
+                <th><a href="" ng-click="campo = 'date'; sentido = !sentido ">Fecha</a>
+                </th>
+                <th>Tipo</th>
+                <th>Categoría</th>
+                <th><a href="" ng-click="campo = 'money'; sentido = !sentido ">Importe</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="movimiento in subasta.movements | filter:valorBuscado | orderBy:campo:sentido">
+                <td class="text-left">{{movement.dateStart | date}}</td>
+                <td class="text-left">{{movement.type}}</td>
+                <td class="text-left">{{movement.category}}</td>
+                <td class="text-left" ng-class="{'text-success': movement.type=='Apuesta', 'text-danger' : movement.type=='Subasta'}">{{movement.money | number:2}} €</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

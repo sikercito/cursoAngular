@@ -1,0 +1,54 @@
+<html lang="es" ng-app="auctionDiary">
+    
+<head>
+    <title>Registra tus Subastas</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta lang="es" />
+    <meta name="description" content="Ejemplo Registro de Apuestas/Subastas en AngularJS por Txema Sánchez" />
+    <meta name="author" content="Txema Sánchez" />
+    <meta name="application-name" content="AuctionDiaryJS" />
+    <meta name="Keywords" content="AngularJS, práctica, curso" />
+    <link rel="author" href="" />
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+    
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="MenuCtrl as menu">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="nav nav-tabs">
+					<li role="presentation" ng-class="{ active: menu.isActive('total') }">
+                        <!-- Los enlaces se formulan como estado, con ui-sref -->
+                        <!-- Estos estados generan rutas, según la configuración -->
+                        <!-- Pero internamente siempre trabajamos con estados -->
+                        <a ui-sref="total">Totales</a>
+                    </li>
+                    <li role="presentation" ng-class="{ active: menu.isActive('nuevo') }">
+                        <a ui-sref="nuevo">Nuevo</a>
+                    </li>
+                    <li role="presentation" ng-class="{ active: menu.isActive('lista') }">
+                        <a ui-sref="lista">Lista</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+	<!-- La directiva de ui-router es... ui-view-->
+    <div class="container text-center" style="padding-top:50px;" ui-view>
+        <!-- En este caso podríamos tener varias vista a la vez-->
+        <!-- Incluso estados anidados unos dentro de otros-->
+    </div>
+    <!-- JavaScript References -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+	<!-- En lugar del enrutador de AngularJS, usaremos uno de terceros, llamado ui-router-->
+    <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+    <script src="menuCtrl.js"></script>
+    <script src="auctCtrl.js"></script>
+    <script src="dropdownService.js"></script>
+    <script src="movementsFactory.js"></script>
+</body>
+    
+</html>
